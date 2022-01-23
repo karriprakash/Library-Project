@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Library</title>
+
+    <style>
+        #in input,
+        #sel {
+            width: 50%;
+            text-align: center;
+        }
+
+        #in input,
+        #sel,
+        button,
+        label {
+            margin-left: 25%;
+
+        }
+
+        #drop {
+            position: relative;
+            display: inline-block;
+        }
+
+        #list1 {
+            display: none;
+            position: absolute;
+        }
+    </style>
+
+    <!-- My Script -->
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+        $(function () {
+            $('.toast').toast('show');
+        });
+        // hover practice 
+        $(function () {
+            $("#drop").hover(function () {
+                $("#list1").css("display", "block");
+            })
+        });
+        /*  when mouse hover on header drop down will off */
+        $(function () {
+            $("#h").hover(function () {
+                $("#list1").css("display", "none");
+            });
+        });
+
+        /*  when mouse hover on section drop down will off */
+        $(function () {
+            $("section").hover(function () {
+                $("#list1").css("display", "none");
+            });
+        });
+
+
+    </script>
+</head>
+
+<body class="bg-info">
+
+    <header class="bg-dark" draggable="true" id="h">
+        <div class="container">
+            <center>
+                <h1 class="display-2 text-danger">Local Library</h1>
+            </center>
+        </div>
+        <a href="#" class="badge badge-info" data-toggle="popover" data-trigger="hover" data-placement="bottom"
+            title="What is Local Library?" data-content="
+        The local library is a small project where a 
+                person can borrow a book and return it in any time
+                but he can't borrow book when he borrowed already,
+                so kindly return book by pressing return button.
+                Thank-you
+        
+        ">What is Local Library?</a>
+    </header>
+    <!-- This is navigation part -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a href="return.html" class="navbar-brand text-light">
+            <img src="books.png" alt="Library" style="width: 60px;">
+        </a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Home</a>
+            </li>
+            &nbsp;
+            <li class="nav-item">
+                <a href="return.html" class="nav-link">Return Books</a>
+            </li>
+            <li class="nav-items">
+                <p st class="spinner-grow spinner-grow-sm text-info"></p>
+            </li>
+            &nbsp;
+            &nbsp;
+            <!-- From here drop down starts -->
+            <li class="nav-item dropdown" id="drop">
+                <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">Donate<span
+                        style="color: gold;">$</span></a>
+                <div class="dropdown-menu" id="list1">
+                    <a href="#" class="dropdown-item">Paypal</a>
+                    <a href="#" class="dropdown-item">Paytm</a>
+                    <a href="#" class="dropdown-item">Bitcoin Pay</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- This is section part -->
+    <section style="margin-top: 5%;" class="container">
+        <div class="container">
+            <form action="verify" id="in">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control text-dark" placeholder="Enter name" id="name" name="user">
+                </div>
+                &nbsp;
+                <div>
+                    <label for="name" class="">Choose a book:</label><br>
+                    <select class="btn btn-secondary  custom-select" data-toggle="dropdown" name="books" id="sel"
+                        title="Select book">
+                        <option value="">Select book</option>
+                        <option class="dropdown-item" value="Harry Potter">Harry Potter</option>
+                        <option value="Java OCA Exam">Java OCA Exam</option>
+                        <option class="dropdown-item" value="Be a Software Engineer">Be a Software Engineer</option>
+                        <option value="Once upon a training">Once upon a training</option>
+                        <option class="dropdown-item" value="Kirack Party">Kirack Party</option>
+                        <option value="Success">Success</option>
+                    </select>
+
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container-flex">
+            <div class="toast" data-autohide="false">
+                <div class="toast-header">
+                    <strong class="mr-auto text-primary"> Today best book</strong>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                </div>
+                <div class="toast-body bg-dark text-light">
+                    Today best book is <strong> <code>"Harry Potter"</code></strong>, this book was
+                    very famous around the world. When you want to dive
+                    into fiction world this book is best fit for you! I suggest
+                    you to pick this and don't forget to return back..!😀
+                </div>
+            </div>
+        </div>
+        &nbsp;
+    </footer>
+</body>
+
+</html>
